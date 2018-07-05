@@ -1,0 +1,11 @@
+@media (max-width: 1200px) {
+    /*.h-image img {*/
+        /*width: 50vw;*/
+    /*}*/
+}
+
+@media (max-width: 1024px) {
+    .h-image img {
+        left: 0;
+    }
+}
