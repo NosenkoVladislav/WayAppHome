@@ -114,4 +114,22 @@ $(function() {
         initBackground2();
     }
 
-});
+})
+
+$(function () {
+    $('.team-wrapper').slick({
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        arrows: true,
+        infinite: false,
+        appendArrows: '.team-control',
+        prevArrow: '<div class="team-control-elem team-control-elem--prev"></div>',
+        nextArrow: '<div class="team-control-elem team-control-elem--next"></div>'
+    });
+})
+
+$(function () {
+    var all = $('.team-wrapper').find('.slick-track').find('.team-item').length/4;
+    var allContainer = $('.team-slide-counter--all');
+    allContainer.html(Math.ceil(all));
+})
