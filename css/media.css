@@ -15,6 +15,10 @@
     .h-form-title__sub {
         font-size: 19px;
     }
+
+    .contacts {
+        padding: 76px 60px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -71,11 +75,21 @@
     }
 
     .services-wrapper {
-        grid-gap: 35px;
+        grid-gap: 30px;
     }
 
     .service {
-        padding: 30px 0;
+        padding: 20px 10px 20px 45px;
+        font-size: 20px;
+    }
+
+    .service:hover {
+        padding: 10px 10px 30px 45px;
+    }
+
+    .service-svg svg {
+        width: 55px;
+        height: 70px;
     }
 
     .st-form-title__sub {
@@ -87,12 +101,33 @@
         font-size: 19px;
     }
 
+    .work-statistic {
+        height: auto;
+        padding: 50px 0;
+    }
+
     .work-st-form {
         padding: 30px;
     }
 
     .team-item-img {
         height: 220px;
+    }
+
+    .b-form-title__reg {
+        font-size: 26px;
+    }
+
+    .b-form-title__sub {
+        margin-top: 10px;
+    }
+
+    .b-form-control {
+        margin-top: 20px;
+    }
+
+    .contacts {
+        width: 65%;
     }
 }
 
@@ -124,7 +159,7 @@
     }
 
     .work-st-form {
-        margin: 0 auto;
+        margin: 40px auto;
     }
 
     .nav-item {
@@ -134,6 +169,33 @@
     .navigation-left {
         margin-right: 15px;
     }
+
+    .service {
+        padding: 20px 10px 20px 45px;
+    }
+
+    .service:hover {
+        padding: 10px 10px 30px 45px;
+    }
+
+    .services-wrapper {
+        grid-template-columns: auto;
+        padding: 0 30px;
+        justify-content: center;
+    }
+
+    .contacts {
+        width: 60%;
+    }
+
+    .contacts-item__val {
+        font-size: 16px;
+    }
+
+    .footer-copyright {
+        font-size: 12px;
+    }
+
 }
 
 @media (max-width: 670px) {
@@ -152,6 +214,7 @@
     .header-content {
         display: flex;
         flex-direction: column-reverse;
+        justify-content: space-between;
     }
 
     .h-form-field {
@@ -167,18 +230,25 @@
         justify-content: unset;
     }
 
-    .h-image-wrapper video {
-        left: 50%;
-        top: 66%;
+    .h-image-wrapper {
+        position: relative;
+        margin-bottom: -25%;
     }
 
-    .h-image-shadow {
-        display: none;
+    .h-image-wrapper video {
+        left: 50%;
+
     }
 
     .video-mob-blur {
         display: block;
-        top: 68%;
+        top: 50%;
+        height: 500px;
+        width: 228px;
+    }
+
+    .h-image-shadow {
+        display: none;
     }
 
     .wave {
@@ -214,8 +284,7 @@
     }
 
     .service {
-        padding: 25px 0;
-        margin: 20px 0;
+        margin: 15px 0;
     }
 
     .works {
@@ -364,11 +433,29 @@
     .footer-wave .wave {
         top: -1px;
     }
+
+    .footer-copyright {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
 }
 
 @media (max-width: 580px) {
     .contacts {
         width: 90%;
+    }
+
+    .service {
+        padding: 30px 10px 30px 45px;
+    }
+
+    .service:hover {
+        padding: 20px 10px 40px 45px;
+    }
+
+    .services-wrapper {
+        margin: 20px 0;
     }
 }
 
@@ -438,5 +525,40 @@
 
     .b-form-wrapper {
         padding: 20px;
+    }
+
+    .h-image-wrapper {
+        margin-bottom: -50%;
+    }
+
+    .h-form {
+        margin-top: 0;
+    }
+
+    .h-text {
+        padding: 15px;
+    }
+
+    .nav-mob-logo svg {
+        height: 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    .services {
+        display: unset;
+    }
+
+    .service-name {
+        font-size: 18px;
+        max-width: unset;
+    }
+
+    .h-text {
+        padding: 0;
+    }
+
+    .h-image-wrapper {
+        margin-bottom: -65%;
     }
 }

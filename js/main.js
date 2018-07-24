@@ -115,8 +115,6 @@ $(function() {
 // })
 
 
-
-
 $(function () {
     $('.team-wrapper').slick({
         slidesToShow: 4,
@@ -135,19 +133,19 @@ $(function () {
     allContainer.html(Math.ceil(all));
 })
 
-function initFullPage() {
-    if($(window).width() < 671) {
-        return
-    } else {
-        $('#fullPage').fullpage({
-            autoScrolling:true,
-            scrollHorizontally: true
-        });
-    }
-}
-
-$(document).ready(initFullPage);
-$(window).on('resize',initFullPage);
+// function initFullPage() {
+//     if($(window).width() < 671) {
+//         return
+//     } else {
+//         $('#fullPage').fullpage({
+//             autoScrolling:true,
+//             scrollHorizontally: true
+//         });
+//     }
+// }
+//
+// $(document).ready(initFullPage);
+// $(window).on('resize',initFullPage);
 
 $(function () {
     var container = $('#bFromSel');
@@ -161,11 +159,6 @@ $(function () {
 
 
     container.on("select2:selecting", function(e) {
-        // if(container.select2("val") =='ios') {
-        //     alert('ios selected')
-        // } else {
-        //     alert('not ios selected')
-        // }
         console.log(container.select2('val'))
     });
 })
