@@ -685,7 +685,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("../assets/images/bg.png") center no-repeat;
+    background: url("../assets/images/bg.jpg") center no-repeat;
     /*-webkit-background-size: cover;*/
     /*background-size: cover;*/
 }
