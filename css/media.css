@@ -141,7 +141,7 @@
     }
 
     .h-form-title__sub {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .h-icons-info {
@@ -576,4 +576,28 @@
     .h-image-wrapper {
         margin-bottom: -65%;
     }
+
+    .work-st-form {
+        padding: 0;
+    }
 }
+
+@media (max-width: 700px) and (orientation:landscape) {
+    .footer {
+        height: 100%;
+    }
+
+    .footer-map {
+        height: 500px;
+        margin: 0;
+    }
+
+    .contacts {
+        padding: 40px;
+    }
+
+    .footer-copyright {
+        bottom:  -185px;
+    }
+}
+
