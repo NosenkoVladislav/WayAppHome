@@ -792,7 +792,8 @@ body {
 /*team*/
 
 .team {
-    height: 100vh;
+    height: 100%;
+    margin: 30px 0;
 }
 
 .section-title {
@@ -803,7 +804,6 @@ body {
 .team .section-title {
     padding: 30px 0 60px 0;
 }
-
 
 .team-item {
     padding: 0 10px;
@@ -873,11 +873,11 @@ body {
 }
 
 .team-control-elem--prev {
-    background: url("../assets/icons/5_Left.svg");
+    background: url("../assets/icons/5_Left.svg") no-repeat;
 }
 
 .team-control-elem--next {
-    background: url("../assets/icons/5_Right.svg");
+    background: url("../assets/icons/5_Right.svg") no-repeat;
 }
 
 .team-slide-counter {
@@ -892,11 +892,95 @@ body {
     font-size: 30px;
 }
 
+.team-wrapper-mob {
+    display: none;
+}
+
+.team-list-mob {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-item-mob {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.team-item-mob .team-item-img {
+    width: 120px;
+    height: 150px;
+}
+
+.team-item-mob .team-item-info {
+    margin: 0 0 0 15px;
+    font-size: 20px;
+    padding: 10px;
+    position: relative;
+    background-color: #fff;
+}
+
+.team-item-mob .team-item-info:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 80%;
+    height: 80%;
+    background-color: transparent;
+    border: 3px solid #f86160;
+    z-index: -1;
+    -webkit-transition: ease-in-out .5s;
+    -moz-transition: ease-in-out .5s;
+    -ms-transition: ease-in-out .5s;
+    -o-transition: ease-in-out .5s;
+    transition: ease-in-out .5s;
+}
+
+.team-item-mob .team-item-info:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border: 3px solid transparent;
+    z-index: -1;
+    -webkit-transition: ease-in-out .5s;
+    -moz-transition: ease-in-out .5s;
+    -ms-transition: ease-in-out .5s;
+    -o-transition: ease-in-out .5s;
+    transition: ease-in-out .5s;
+}
+
+.team-item-mob:hover .team-item-info:after {
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    border: 3px solid #f86160;
+}
+
+.team-item-mob:hover .team-item-info:before {
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+}
+
+.team-control-elem:nth-child(1),
+.team-control-elem:nth-child(5) {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slick-slide {
+    outline: none;
+}
 
 /*b form*/
 
 .b-form {
-    height: 100vh;
+    height: 100%;
     background-color: var(--mGrey);
     display: flex;
     align-items: center;
@@ -905,6 +989,7 @@ body {
 .b-form-wrapper {
     width: 100%;
     padding: 75px;
+    margin-top: 80px;
     border: 1px dashed #e7e7e8;
     position: relative;
 }
