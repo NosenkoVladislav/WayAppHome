@@ -1,3 +1,23 @@
+
+function loader() {
+    var loader = $('#loader');
+    var content = $('#content');
+
+    function displayContent() {
+        loader.removeClass('visible');
+        content.addClass('ready');
+    }
+
+    displayContent()
+}
+
+
+$(window).load(function () {
+    loader();
+    $('#video').get(0).play();
+});
+
+
 var config = {};
 
 $(function() {
@@ -127,7 +147,9 @@ $(function () {
     })
 })
 
-
+$('.work-st-info--footer-img').click(function () {
+    $('.work-st-info--footer-text').addClass('visible');
+})
 
 
 function initMap() {
