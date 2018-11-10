@@ -1,4 +1,3 @@
-
 function loader() {
     var loader = $('#loader');
     var content = $('#content');
@@ -11,12 +10,10 @@ function loader() {
     displayContent()
 }
 
-
 $(window).load(function () {
     loader();
     $('#video').get(0).play();
 });
-
 
 var config = {};
 
@@ -147,14 +144,10 @@ $(function () {
     })
 })
 
-$('.work-st-info--footer-img').click(function () {
-    $('.work-st-info--footer-text').addClass('visible');
-})
-
 
 function initMap() {
-    var center = {lat: 50.428697, lng: 30.520755};
-    var myLatLng = {lat: 50.421929, lng: 30.533896};
+    var center = {lat: 50.433992, lng: 30.622570};
+    var myLatLng = {lat: 50.433992, lng: 30.622570};
     var zoom = 14.5;
     // Styles a map in night mode.
 
@@ -163,7 +156,7 @@ function initMap() {
             center = {lat: 50.428697, lng: 30.528755};
             zoom = 14;
         } else {
-            center = {lat: 50.428697, lng: 30.520755};
+            center = {lat: 50.439900, lng: 30.611170};
             zoom = 14.5;
         }
 
@@ -365,5 +358,156 @@ function initMap() {
         });
     }).trigger('resize');
 }
+
+
+function anchorLinks(selector) {
+    $(document).on('click', selector, function (event) {
+        event.preventDefault();
+        deselectAll()
+        $(this).addClass('current');
+
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top - 80
+        }, 500);
+    });
+}
+
+function deselectAll() {
+    $('.nav-item').each(function () {
+        $(this).removeClass('current');
+    })
+}
+
+anchorLinks('a[href^="#header"]');
+anchorLinks('a[href^="#servicesAnchor"]');
+anchorLinks('a[href^="#worksAnchor"]');
+anchorLinks('a[href^="#priceAnchor"]');
+anchorLinks('a[href^="#orderAnchor"]');
+
+$(window).scroll(function () {
+    if ($('.header').visible(true)) {
+        deselectAll();
+        $('a[href^="#header"]').addClass('current');
+    }
+
+    if ($('.services').visible(true)) {
+        deselectAll();
+        $('a[href^="#servicesAnchor"]').addClass('current');
+    }
+
+    if($('.works').visible(true)) {
+        deselectAll();
+        $('a[href^="#worksAnchor"]').addClass('current');
+    }
+
+    if($('.work-statistic').visible(true)) {
+        deselectAll();
+        $('a[href^="#priceAnchor"]').addClass('current');
+    }
+
+    if($('.b-form').visible(true)) {
+        deselectAll();
+        $('a[href^="#orderAnchor"]').addClass('current');
+    }
+})
+
+//form validation
+
+var forms = document.getElementsByTagName('form');
+for(var i = 0; i < forms.length; i++){
+    forms[i].addEventListener('submit', validator);
+}
+
+var rules = {
+    required: function(el){
+        if(el.value != ''){
+            return true;
+        }
+        return false;
+    },
+    email: function(el){
+        var reg = /^\w{1,}@\w{1,}\.\w{1,}$/;
+        return reg.test(el.value);
+    },
+    phone: function (el) {
+        if(el.value.length < 18) {
+            return false
+        } else {
+           return true
+        }
+    },
+    nonrequired: function (el) {
+        if(el.value == '') {
+            return true
+        }
+    }
+
+}
+
+function showErrors (arr) {
+    console.log(arr);
+}
+
+function validator (e) {
+    e.preventDefault();
+    var errors = [];
+    var inputs = [];
+    var inputsAll = this.elements;
+
+    //html collection to array
+    for (var i = 0; i < inputsAll.length; i++) {
+        inputs.push(inputsAll[i])
+    }
+    //remove select2 hidden input
+    for (var a = 0; a < inputs.length; a++) {
+        if (inputs[a].id == 'bFromSel') {
+            inputs.splice(3,4)
+        }
+    }
+
+    for(var i = 0; i < inputs.length; i++){
+        if (inputs[i].tagName != 'BUTTON') {
+            var rulesList = inputs[i].dataset.rule;
+            rulesList = rulesList.split(' ');
+            for(var j = 0; j < rulesList.length; j++){
+                if (rulesList[j] in rules) {
+                    if(!rules[rulesList[j]](inputs[i])){
+                        errors.push({
+                            name: inputs[i].name,
+                            error: rulesList[j],
+                            value: inputs[i].value
+                        });
+                        this[i].classList.add('error')
+                    } else {
+                        this[i].classList.remove('error')
+                    }
+                }
+            }
+        }
+    }
+    if(errors.length > 0){
+        e.preventDefault();
+        showErrors(errors);
+    }
+
+}
+
+function isPhone(selector) {
+    $(document).on('input', selector, function () {
+        $(this).parent().addClass('isActive');
+    });
+
+    $(selector).focusout(function () {
+        if($(this).val().length <2) {
+            $(this).val(' ').parent().removeClass('isActive');
+        }
+    });
+}
+
+
+
+isPhone('#tel1');
+isPhone('#tel2');
+isPhone('#tel3');
 
 

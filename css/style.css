@@ -11,7 +11,7 @@ body {
 /*form*/
 .form-input {
     padding: 14px;
-    font-size: 1em;
+    font-size: 18px;
     border: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -33,9 +33,14 @@ body {
     color: #cecfd0;
 }
 
+.form-input.error {
+    border: 1px solid red;
+}
+
 .btn {
     width: 100%;
     padding: 14px;
+    height: 53px;
     font-size: 1em;
     text-align: center;
     text-transform: uppercase;
@@ -81,14 +86,17 @@ body {
     position: relative;
     z-index: 2;
     height: calc(100vh - 80px);
+    margin-top: 80px;
 }
 
 /*navigation*/
 .navigation-wrapper {
     border-bottom: 1px solid #ffffff1a;
+    background-color: #0e121d;
+    width: 100%;
     height: 80px;
-    position: relative;
-    z-index: 2;
+    position: fixed;
+    z-index: 5;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -121,6 +129,10 @@ body {
     text-decoration: none;
     font-size: 20px;
     font-weight: 400;
+}
+
+.nav-item.current .nav-item-line {
+    transform: translateX(100%);
 }
 
 .nav-item__logo svg{
@@ -270,8 +282,20 @@ body {
     width: 50%;
 }
 
+.shell .h-form-input {
+    width: 100%;
+}
+
 .h-form-input:first-child {
     margin-right: 20px;
+}
+
+.h-form-field .shell {
+    width: 50%;
+}
+
+.h-form .btn {
+    font-size: 16px;
 }
 
 .h-image-wrapper {
@@ -279,13 +303,7 @@ body {
     align-items: center;
     justify-content: center;
 }
-.h-image {
 
-}
-
-.h-image-wrapper video {
-
-}
 .h-image {
     height: 524px;
     width: 267px;
@@ -424,11 +442,11 @@ body {
 .service-svg {
     position: absolute;
     left: 0;
-    -webkit-transform: translate(-50%,-15%);
-    -moz-transform: translate(-50%,-15%);
-    -ms-transform: translate(-50%,-15%);
-    -o-transform: translate(-50%,-15%);
-    transform: translate(-50%,-15%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
     background-color: #fff;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -440,6 +458,8 @@ body {
 .service-svg svg  {
     width: 65px;
     height: 80px;
+    fill: var(--mOrange);
+    pointer-events: none;
 }
 
 .service-hover {
@@ -448,10 +468,11 @@ body {
     display: flex;
     align-items: center;
     opacity: 0;
+    pointer-events: none;
 }
 
 .service-order {
-    font-size: 0.7em;
+    font-size: 18px;
     font-weight: bold;
     color: var(--mOrange);
     position: relative;
@@ -468,7 +489,7 @@ body {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    bottom: 18%;
+    top: 3px;
     left: -15%;
     transition: all .25s ease-in-out;
 }
@@ -480,8 +501,6 @@ body {
     justify-content: center;
     padding: 30px 20px 30px 40px;
     border: 1px dashed #e7e7e8;
-    font-size: 1.6em;
-    font-weight: bolder;
     position: relative;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -522,7 +541,10 @@ body {
 }
 
 .service-name {
-    max-width: 65%;
+    width: 100%;
+    font-size: 30px;
+    margin-left: 30px;
+    font-weight: bolder;
 }
 
 /*works*/
@@ -725,6 +747,7 @@ body {
 .st-form-btn {
     font-weight: bolder;
     text-transform: uppercase;
+    font-size: 16px;
 }
 
 .work-st-info {
@@ -810,7 +833,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     position: relative;
     z-index: 2;
 }
@@ -825,18 +847,8 @@ body {
     font-size: 20px;
     width: 70%;
     margin-left: 25px;
-    opacity: 0;
     position: relative;
     z-index: 1;
-    -webkit-transition: ease-in-out .3s;
-    -moz-transition: ease-in-out.3s;
-    -ms-transition: ease-in-out.3s;
-    -o-transition: ease-in-out.3s;
-    transition: ease-in-out.3s;
-}
-
-.work-st-info--footer-text.visible {
-    opacity: 1;
 }
 /*team*/
 
@@ -860,6 +872,7 @@ body {
     flex-direction: column;
     align-self: center;
     width: 25%;
+    cursor: pointer;
 }
 
 .team-item-img {
@@ -903,10 +916,12 @@ body {
 
 .team-item-info--name {
     font-weight: 400;
+    font-size: 18px;
 }
 
 .team-item-info--status {
     font-weight: 100;
+    font-size: 16px;
 }
 
 .team-control {
@@ -1059,11 +1074,13 @@ body {
 }
 
 .b-form-title__sub {
+    font-size: 16px;
     margin-top: 20px;
+    font-weight: 400;
 }
 
 .b-form-content {
-    margin: 20px 0;
+    margin: 40px 0 20px 0;
 }
 
 .b-form-content--body {
@@ -1087,6 +1104,7 @@ textarea.b-form-input {
 
 .b-form-control {
     display: flex;
+    margin-top: 20px;
 }
 
 .add-files {
@@ -1152,6 +1170,11 @@ textarea.b-form-input {
 .select2-container--default .select2-results__option[aria-selected=true] {
     background-color: transparent;
     color: #fff;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+    font-size: 18px;
+    margin-top: 0;
 }
 
 .select2-search__field::placeholder{
@@ -1260,11 +1283,11 @@ textarea.b-form-input {
     top: 0;
 }
 
-#loader{
+#loader {
     position: fixed;
     width: 100%;
     height: 100vh;
-    z-index: 4;
+    z-index: 99;
     overflow: visible;
     background: #000 url(../assets/images/Pre.gif) center center no-repeat;
     visibility: hidden;
@@ -1281,3 +1304,38 @@ textarea.b-form-input {
     opacity: 1;
 }
 
+.shell {
+    position: relative;
+    display: block;
+}
+
+.shell:before {
+    content: 'Телефон';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    color: #cecfd0;
+    font-weight: bold;
+    pointer-events: none;
+    font-size: 19px;
+}
+
+.shell.isActive:before {
+    display: none;
+}
+
+.h-form-field .shell:before {
+    width: 100%;
+    left: 0;
+    text-align: center;
+}
+
+.work-st-form .shell:before {
+    width: 100%;
+    left: 0;
+    text-align: center;
+}
+
+.shell span[aria-hidden="true"] {
+    display: none;
+}
