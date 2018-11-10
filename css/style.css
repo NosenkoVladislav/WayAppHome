@@ -8,6 +8,10 @@ body {
     font-family: Futura,Arial,sans-serif;
 }
 
+input[type=file] {
+    display: none;
+}
+
 /*form*/
 .form-input {
     padding: 14px;
@@ -58,7 +62,21 @@ body {
     -webkit-box-shadow: inset 0 -2px 0 0 #c12e54;
     -moz-box-shadow: inset 0 -2px 0 0 #c12e54;
     box-shadow:  inset 0 -2px 0 0 #c12e54;
+    -webkit-transition: ease-in-out .2s;
+    -moz-transition: ease-in-out .2s;
+    -ms-transition: ease-in-out .2s;
+    -o-transition: ease-in-out .2s;
+    transition: ease-in-out .2s;
+    outline: none !important;
 }
+
+.btn:active {
+    background: -moz-linear-gradient(left, rgb(240,183,161) 0%, rgb(228,47,120) 0%, rgb(226,46,119) 22%, rgb(248,98,96) 100%);
+    background: -webkit-linear-gradient(left, rgb(240,183,161) 0%,rgb(228,47,120) 0%,rgb(226,46,119) 22%,rgb(248,98,96) 100%);
+    background: linear-gradient(to right, rgb(240,183,161) 0%,rgb(228,47,120) 0%,rgb(226,46,119) 22%,rgb(248,98,96) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#f86260',GradientType=1 );
+}
+
 
 /*header*/
 .header {
@@ -578,6 +596,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+    cursor: pointer;
 }
 
 .order-btn-wrap-2 {
@@ -1104,19 +1123,29 @@ textarea.b-form-input {
 
 .b-form-control {
     display: flex;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
 .add-files {
-    width: 50%;
+    width: 200px;
     font-size: 20px;
     color: var(--mOrange);
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .b-form-control .btn {
     width: 50%;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-search input {
+    min-width: 120px;
 }
 
 .select2-container--default .select2-selection--multiple,
@@ -1161,6 +1190,7 @@ textarea.b-form-input {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+    width: 250px !important;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -1175,6 +1205,7 @@ textarea.b-form-input {
 .select2-container .select2-search--inline .select2-search__field {
     font-size: 18px;
     margin-top: 0;
+
 }
 
 .select2-search__field::placeholder{
@@ -1313,7 +1344,7 @@ textarea.b-form-input {
     content: 'Телефон';
     position: absolute;
     top: 14px;
-    left: 14px;
+    left: 15px;
     color: #cecfd0;
     font-weight: bold;
     pointer-events: none;
@@ -1338,4 +1369,100 @@ textarea.b-form-input {
 
 .shell span[aria-hidden="true"] {
     display: none;
+}
+
+.shel
+
+/*Magnific Popup Smooth Fade Effect*/
+
+.mfp-no-margins img.mfp-img {
+    padding: 0;
+}
+.mfp-no-margins .mfp-figure:after {
+    top: 0;
+    bottom: 0;
+}
+.mfp-no-margins .mfp-container {
+    padding: 0;
+}
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+    opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+/*popups*/
+
+.popup-container {
+    display: flex;
+    justify-content: center;
+}
+
+.popup-container .b-form-wrapper {
+    width: 70%;
+    max-width: 1000px;
+    background-color: var(--mGrey);
+    margin-top: 0;
+    position: relative;
+}
+
+.popup-container .b-form-title {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+
+.popup-close {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.popup-close svg {
+    color: #000;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+
+.confirm-wrapper {
+    width: 400px;
+    height: 300px;
+    background-color: var(--mGrey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.confirm-wrapper .msg {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.confirm-wrapper .btn {
+    width: 70%;
+    margin: 0 auto;
 }

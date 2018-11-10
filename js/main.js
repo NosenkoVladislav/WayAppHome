@@ -10,6 +10,7 @@ function loader() {
     displayContent()
 }
 
+
 $(window).load(function () {
     loader();
     $('#video').get(0).play();
@@ -112,23 +113,17 @@ $(function () {
 })
 
 $(function () {
-    var container = $('#bFromSel');
-    container.select2({
+    $('.select').select2({
         placeholder: 'Выбор услуг',
         closeOnSelect: false
-    });
-
-    var render = $('.select2-selection--multiple');
-    container.on("select2:selecting", function(e) {
-        console.log(container.select2('val'))
-    });
-})
+    })
+});
 
 
 $(function () {
     var play = $('.fa-play-circle');
     var pause = $('.fa-pause-circle');
-    var video = $('#video')
+    var video = $('#video');
     $('.player-control').click(function (event) {
         var target = $(event.target)
         if(target.hasClass('fa-play-circle')) {
@@ -442,7 +437,7 @@ var rules = {
         }
     }
 
-}
+};
 
 function showErrors (arr) {
     console.log(arr);
@@ -455,17 +450,17 @@ function validator (e) {
     var inputsAll = this.elements;
 
     //html collection to array
-    for (var i = 0; i < inputsAll.length; i++) {
-        inputs.push(inputsAll[i])
+    for (var q = 0; q < inputsAll.length; q++) {
+        inputs.push(inputsAll[q])
     }
     //remove select2 hidden input
     for (var a = 0; a < inputs.length; a++) {
-        if (inputs[a].id == 'bFromSel') {
+        if (inputs[a].className == 'select2-search__field') {
             inputs.splice(3,4)
         }
     }
 
-    for(var i = 0; i < inputs.length; i++){
+    for(var i = 0; i < inputs.length; i++) {
         if (inputs[i].tagName != 'BUTTON') {
             var rulesList = inputs[i].dataset.rule;
             rulesList = rulesList.split(' ');
@@ -485,10 +480,30 @@ function validator (e) {
             }
         }
     }
-    if(errors.length > 0){
+    if (errors.length > 0) {
         e.preventDefault();
         showErrors(errors);
+    } else {
+        sendConfirm()
+        $('form').each(function(){
+            $(this).trigger('reset');
+            $('.shell').removeClass('isActive')
+        });
+
     }
+}
+
+function sendConfirm() {
+    $.magnificPopup.open({
+        items: {
+            src: $('#sendConfirm').html()
+        },
+        type: 'inline',
+        preloader: false,
+        modal: true,
+        removalDelay: 300,
+        mainClass: 'mfp-no-margins mfp-with-zoom'
+    })
 
 }
 
@@ -504,10 +519,37 @@ function isPhone(selector) {
     });
 }
 
-
-
 isPhone('#tel1');
 isPhone('#tel2');
 isPhone('#tel3');
+isPhone('#tel4');
 
+$('#mainForm').magnificPopup({
+    type: 'inline',
+    preloader: false,
+    modal: true,
+    removalDelay: 300,
+    mainClass: 'mfp-no-margins mfp-with-zoom'
+});
+
+$(document).on('click', '#popup-close', function (e) {
+    e.preventDefault();
+    $.magnificPopup.close();
+});
+
+//file adding
+
+function addFile() {
+    var input = document.getElementsByClassName('fileInput');
+    for (var j = 0; j < input.length; j++) {
+        input[j].addEventListener('change', function() {
+            for (var i = 0; i < this.files.length; i ++) {
+                // console.log(this.files[i]);
+                this.previousElementSibling.innerText = this.files[i].name;
+            }
+        })
+    }
+}
+
+addFile();
 

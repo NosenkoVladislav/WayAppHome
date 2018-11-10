@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="plugins/slick/slick.css">
-    <!--<link rel="stylesheet" href="plugins/Fullpage.js/fullpage.min.css">-->
+    <link rel="stylesheet" href="plugins/Fullpage.js/fullpage.min.css">
     <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="plugins/Magnific-Popup/css/magnific-popup.css">
@@ -144,7 +144,7 @@
                         </svg>
                     </a>
                     <a class="nav-mob-logo">
-                        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     viewBox="0 0 575.4 147.4" style="enable-background:new 0 0 575.4 147.4;" xml:space="preserve">
                     <style type="text/css">
                         .st0 {
@@ -220,7 +220,7 @@
                     </a>
                     <a class="nav-mob-bid">
                         <div class="bid-icon">
-                            <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 	                            viewBox="0 0 17.3 23" xml:space="preserve">
                                 <path d="M17.3,0H4.7L0.6,12.4h3L0,23L16.8,8.8h-5.2L17.3,0z M12,10.6l-8.3,7l2.3-7H3L6,1.8h8.1l-5.7,8.8H12z"/>
                             </svg>
@@ -238,7 +238,7 @@
                     <div class="h-image-shadow"></div>
                 </div>
                 <div class="h-text">
-                    <form class="h-form">
+                    <form class="h-form form-sm">
                         <div class="h-form-title">разработка мобильных приложений <span class="h-form-title__hl">под ключ</span></div>
                         <div class="h-form-title__sub">Создадим Ваше приложение <wbr> за 2 месяца</div>
                         <div class="h-form-field">
@@ -431,7 +431,7 @@
         </div>
     </section>
     <section class="section works" id="worksAnchor">
-        <div class="order-btn-main-wrap order-btn-wrap">
+        <div class="order-btn-main-wrap order-btn-wrap" href="#toMainForm" id="mainForm">
             <div class="order-btn-wrap order-btn-wrap-2"></div>
             <div class="order-btn-wrap order-btn-wrap-1"></div>
             <div class="order-btn-wrap order-btn">
@@ -543,7 +543,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="work-st-form">
+                <form class="work-st-form form-sm" method="POST">
                     <div class="st-form-title h-form-title">разработка мобильных приложений <span class="h-form-title__hl">под ключ</span></div>
                     <div class="st-form-title__sub h-form-title__sub">Отправьте нам запрос и сделаем <wbr>просчет сроков и стоимости</div>
                     <input type="text" class="form-input st-form-input" placeholder="Имя" data-rule="required">
@@ -734,7 +734,7 @@
                         <input type="text" class="form-input b-form-input" placeholder="Имя" data-rule="required">
                         <input type="text" class="form-input b-form-input" placeholder="E-mail" data-rule="required email">
                         <input  id="tel3" type="tel" name="phone" placeholder="+XX (XXX) XXX XXXX"  class="masked form-input b-form-input" title="12-digit number" data-rule="required phone">
-                        <select name="b-form-select" id="bFromSel" class="form-input b-form-input" multiple="multiple" data-rule="nonrequired">
+                        <select name="b-form-select" id="bFormSel" class="form-input b-form-input select" multiple="multiple" data-rule="nonrequired">
                             <option value="ios">iOS</option>
                             <option value="andr">Android</option>
                             <option value="des">Design</option>
@@ -744,10 +744,10 @@
                         <textarea name="b-form-area" id="bFromArea" cols="30" rows="4" class="form-input b-form-input" placeholder="Комментарий" data-rule="nonrequired"></textarea>
                     </div>
                     <div class="b-form-control">
-                        <div class="add-files">+ Прикрепить файл</div>
+                        <label for="fileAdd" class="add-files">+ Прикрепить файл</label>
+                        <input id="fileAdd" class="fileInput" type="file" accept=".img, .jpg, .png, .jpeg, .zip, .rar">
                         <button class="btn">отправить запрос</button>
                     </div>
-                </div>
                 </div>
             </form>
         </div>
@@ -803,6 +803,56 @@
     </section>
 </div>
 
+<!--popups-->
+
+<div id="toMainForm" class="popup-order mfp-hide">
+    <div class="popup-container">
+        <form class="b-form-wrapper">
+            <a class="popup-close" id="popup-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </a>
+            <div class="b-form-title">
+                <div class="b-form-title__reg section-title">Готовы обсудить проект?</div>
+                <div class="b-form-title__sub">Заполните форму и мы свяжемся с вами</div>
+            </div>
+            <div class="b-form-content">
+                <div class="b-form-content--body">
+                    <input type="text" class="form-input b-form-input" placeholder="Имя" data-rule="required">
+                    <input type="text" class="form-input b-form-input" placeholder="E-mail" data-rule="required email">
+                    <input  id="tel4" type="tel" name="phone" placeholder="+XX (XXX) XXX XXXX"  class="masked form-input b-form-input" title="12-digit number" data-rule="required phone">
+                    <select name="b-form-select" id="bFromSelPop" class="form-input b-form-input select" multiple="multiple" data-rule="nonrequired">
+                        <option value="ios">iOS</option>
+                        <option value="andr">Android</option>
+                        <option value="des">Design</option>
+                    </select>
+                </div>
+                <div class="b-form-content--footer">
+                    <textarea name="b-form-area" id="bFromArea" cols="30" rows="4" class="form-input b-form-input" placeholder="Комментарий" data-rule="nonrequired"></textarea>
+                </div>
+                <div class="b-form-control">
+                    <label for="fileAdd" class="add-files">+ Прикрепить файл</label>
+                    <input id="fileAdd" class="fileInput" type="file" accept=".img, .jpg, .png, .jpeg, .zip, .rar">
+                    <button class="btn">отправить запрос</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="sendConfirm" class="popup-confirm mfp-hide">
+    <div class="popup-container">
+        <div class="confirm-wrapper">
+            <div class="msg">Текст с благодарностью!</div>
+            <button class="btn" id="popup-close">закрыть</button>
+        </div>
+    </div>
+</div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="plugins/FSS/js/flat-surface-shader.js"></script>
@@ -815,6 +865,7 @@
 <script src="plugins/visible.js/jquery.visible.js"></script>
 <script src="plugins/masking-input/masking-input.js" data-autoinit="true"></script>
 <script src="plugins/Magnific-Popup/js/jquery.magnific-popup.min.js"></script>
+<script src="plugins/Fullpage.js/fullpage.min.js"></script>
 <script src="js/main.js"></script>
 
 </html>
