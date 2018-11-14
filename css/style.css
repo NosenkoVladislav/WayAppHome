@@ -83,6 +83,7 @@ input[type=file] {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    background: url("../assets/images/price-bg.jpg") no-repeat center;
 }
 
 .header canvas {
@@ -258,7 +259,7 @@ input[type=file] {
 }
 
 .h-text {
-    padding: 25px 70px;
+    padding: 70px;
     font-weight: bold;
     position: relative;
     display: flex;
@@ -670,7 +671,7 @@ input[type=file] {
 }
 
 .works-content {
-    height: 100vh;
+    height: calc(100vh - 80px);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0;
@@ -1227,7 +1228,7 @@ textarea.b-form-input {
 }
 
 .footer .container {
-    height: 100%;
+    height: calc(100vh - 80px);
 }
 
 .footer-content {
@@ -1297,6 +1298,7 @@ textarea.b-form-input {
     font-size: 20px;
     font-weight: 300;
     position: relative;
+    bottom: -15px;
 }
 
 #map {
@@ -1465,4 +1467,173 @@ textarea.b-form-input {
 .confirm-wrapper .btn {
     width: 70%;
     margin: 0 auto;
+}
+
+/*jobs page*/
+
+.presentation {
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/bg.jpg') no-repeat center;
+    background-size: cover;
+    display: flex;
+}
+
+.presentation .description {
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.presentation .gallery {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.presentation .control {
+    display: flex;
+    justify-content: space-between;
+}
+
+.control .arrow svg{
+    width: 60px;
+    height: 60px;
+    fill: var(--mPink);
+    cursor: pointer;
+}
+
+.control .logo svg {
+    width: 250px;
+}
+
+.presentation .about {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.presentation .title {
+    font-size: 37px;
+    margin-bottom: 40px;
+}
+
+.presentation .subtitle {
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.presentation .info {
+    font-size: 24px;
+}
+
+.presentation .item {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin: 24px 0;
+}
+
+.presentation .item .name {
+    font-size: 24px;
+    color: var(--mPink);
+    width: 130px;
+    margin-right: 24px;
+}
+
+.presentation .item .label {
+    font-size: 24px;
+    font-weight: 100;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.presentation .item .content {
+    display: flex;
+}
+
+.presentation .team-face{
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.presentation .team-face img {
+    width: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.presentation .btn-wrap {
+    width: 100%;
+}
+
+.presentation .btn {
+    display: block;
+    padding: 14px 24px;
+    width: 500px;
+    height: auto;
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+.gallery .image {
+    width: 100%;
+    height: 100vh;
+}
+
+.gallery .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slick-dots {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slick-dots li {
+    width: 60px;
+    height: 4px;
+    background-color: #fff;
+    margin: 0 15px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.slick-dots li.slick-active {
+    opacity: 1;
+}
+
+.slick-dots li button {
+    display: none;
+}
+
+.job-block {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+#job-2,#job-3,#job-4 {
+    display: none;
 }

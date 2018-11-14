@@ -10,69 +10,63 @@ function loader() {
     displayContent()
 }
 
-
-$(window).load(function () {
-    loader();
-    $('#video').get(0).play();
-});
-
-var config = {};
-
-$(function() {
-    // Background
-    var WEBGL = 'webgl';
-    var CANVAS = 'canvas';
-    var SVG = 'svg';
-
-    var canvas = document.createElement('canvas');
-
-    backgroundEnabled = canvas.getContext && canvas.getContext('2d') && $('#header').css('display') != 'none';
-
-    if (backgroundEnabled) {
-        config.background = {
-            enabled: true,
-
-            RENDER: {
-                // Takes all the information in a Scene and renders it to a context.
-                // A Scene sits at the very top of the stack. It simply manages arrays of Mesh & Light objects.
-                renderer: WEBGL
-            },
-
-            MESH: {
-                ambient: '#555555', //
-                diffuse: '#ffffff', //
-                width: 1.2, // Triangle Width
-                height: 1.2, // Triangle Height
-                depth: 5, // Transparency of the triangles
-                segments: 16, // Number of triangles to display in 1 row
-                slices: 8, // Number of triangles to display in 1 column
-                xRange: 0.8, // Wideness of the triangles in X Position
-                yRange: 0.1, // Wideness of the triangles in Y Position
-                zRange: 1.0, // Wideness of the triangles in Z Position
-                speed: 0.001 // Speed of the moving traingles
-            },
-
-            LIGHT: {
-                autopilot: true,
-                ambient: '#0b1220',
-                diffuse: '#131c2c',
-                count: 2, // Contrast
-                zOffset: 100,
-
-                xyScalar: 1,
-                speed: 0.001,
-                gravity: 1200,
-                dampening: 0.15,
-                minLimit: 8,
-                maxLimit: null,
-                minDistance: 20,
-                maxDistance: 400,
-                draw: false
-            }
-        }
-        initBackground();
-    }
-});
+// var config = {};
+//
+// $(function() {
+//     // Background
+//     var WEBGL = 'webgl';
+//     var CANVAS = 'canvas';
+//     var SVG = 'svg';
+//
+//     var canvas = document.createElement('canvas');
+//
+//     backgroundEnabled = canvas.getContext && canvas.getContext('2d') && $('#header').css('display') != 'none';
+//
+//     if (backgroundEnabled) {
+//         config.background = {
+//             enabled: true,
+//
+//             RENDER: {
+//                 // Takes all the information in a Scene and renders it to a context.
+//                 // A Scene sits at the very top of the stack. It simply manages arrays of Mesh & Light objects.
+//                 renderer: WEBGL
+//             },
+//
+//             MESH: {
+//                 ambient: '#555555', //
+//                 diffuse: '#ffffff', //
+//                 width: 1.2, // Triangle Width
+//                 height: 1.2, // Triangle Height
+//                 depth: 5, // Transparency of the triangles
+//                 segments: 16, // Number of triangles to display in 1 row
+//                 slices: 8, // Number of triangles to display in 1 column
+//                 xRange: 0.8, // Wideness of the triangles in X Position
+//                 yRange: 0.1, // Wideness of the triangles in Y Position
+//                 zRange: 1.0, // Wideness of the triangles in Z Position
+//                 speed: 0.001 // Speed of the moving traingles
+//             },
+//
+//             LIGHT: {
+//                 autopilot: true,
+//                 ambient: '#0b1220',
+//                 diffuse: '#131c2c',
+//                 count: 2, // Contrast
+//                 zOffset: 100,
+//
+//                 xyScalar: 1,
+//                 speed: 0.001,
+//                 gravity: 1200,
+//                 dampening: 0.15,
+//                 minLimit: 8,
+//                 maxLimit: null,
+//                 minDistance: 20,
+//                 maxDistance: 400,
+//                 draw: false
+//             }
+//         }
+//         initBackground();
+//     }
+// });
 
 
 $(function () {
@@ -140,219 +134,6 @@ $(function () {
 })
 
 
-function initMap() {
-    var center = {lat: 50.433992, lng: 30.622570};
-    var myLatLng = {lat: 50.433992, lng: 30.622570};
-    var zoom = 14.5;
-    // Styles a map in night mode.
-
-    $(window).resize(function () {
-        if($(window).width()<560) {
-            center = {lat: 50.428697, lng: 30.528755};
-            zoom = 14;
-        } else {
-            center = {lat: 50.439900, lng: 30.611170};
-            zoom = 14.5;
-        }
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: center,
-            zoom: zoom,
-            disableDefaultUI: true,
-            styles: [
-                {
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#212121"
-                        }
-                    ]
-                },
-                {
-                    "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#757575"
-                        }
-                    ]
-                },
-                {
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                        {
-                            "color": "#212121"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#757575"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative.country",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#9e9e9e"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative.land_parcel",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative.locality",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#bdbdbd"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#757575"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi.park",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#181818"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi.park",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#616161"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi.park",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                        {
-                            "color": "#1b1b1b"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#2c2c2c"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#8a8a8a"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#373737"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#3c3c3c"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway.controlled_access",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#4e4e4e"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#616161"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "transit",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#757575"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#000000"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#3d3d3d"
-                        }
-                    ]
-                }
-            ]
-        });
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            icon: 'assets/images/map.png'
-        });
-    }).trigger('resize');
-}
 
 
 function anchorLinks(selector) {
@@ -504,7 +285,6 @@ function sendConfirm() {
         removalDelay: 300,
         mainClass: 'mfp-no-margins mfp-with-zoom'
     })
-
 }
 
 function isPhone(selector) {
@@ -553,3 +333,51 @@ function addFile() {
 
 addFile();
 
+// new fullpage('#content', {
+//     autoScrolling:true,
+//     scrollHorizontally: true,
+//     css3: true,
+//     scrollingSpeed: 600,
+//     onLeave: function(){
+//         $('.nav-item').each(function () {
+//             $(this).removeClass('current');
+//         })
+//
+//     },
+//     afterLoad: function(anchor, index){
+//         $('.nav-item').each(function () {
+//             // console.log($(this)[0].hash);
+//             if($(this)[0].hash === '#' +index.anchor) {
+//                 console.log('you are here');
+//             }
+//         })
+//         console.log(index.anchor);
+//     }
+// });
+
+
+$('.gallery').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000
+});
+
+$('.arrow').click(function () {
+    if($(this).hasClass('to-right')) {
+        jobToRight()
+    } else {
+        jobToLeft()
+    }
+})
+
+function jobToRight() {
+    alert('СКОРО БУДЕТ! вправо')
+}
+
+function jobToLeft() {
+    alert('СКОРО БУДЕТ! влево')
+}
