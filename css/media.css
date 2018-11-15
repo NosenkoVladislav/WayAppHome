@@ -29,6 +29,10 @@
     .h-form-title__sub {
         font-size: 17px;
     }
+
+    .presentation .job-wrap .description {
+        padding: 30px;
+    }
 }
 
 @media (max-width: 998px) {
@@ -128,6 +132,14 @@
 
     .contacts {
         width: 65%;
+    }
+
+    .presentation .btn {
+        padding: 8px;
+        height: auto;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
     }
 }
 

@@ -340,7 +340,7 @@ input[type=file] {
 
 .h-image-wrapper video {
     height: 500px;
-    width: 228px;
+    width: 229px;
     position: absolute;
     z-index: 2;
     top: 50%;
@@ -713,6 +713,7 @@ input[type=file] {
 .work-blured-text {
     color: #fff;
     opacity: 1;
+    font-size: 20px;
 }
 
 .work-item:hover > .work-blured {
@@ -1471,15 +1472,22 @@ textarea.b-form-input {
 
 /*jobs page*/
 
+.presentation-body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .presentation {
     width: 100%;
     height: 100vh;
-    background: url('../assets/images/bg.jpg') no-repeat center;
+    background: url('../assets/images/price-bg.jpg') no-repeat center;
     background-size: cover;
     display: flex;
+    position: relative;
 }
 
-.presentation .description {
+.presentation .job-wrap .description {
     width: 50%;
     height: 100%;
     color: #fff;
@@ -1498,31 +1506,55 @@ textarea.b-form-input {
 .presentation .control {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .control .arrow svg{
-    width: 60px;
-    height: 60px;
+    width: 3.5vw;
+    height: 3vw;
     fill: var(--mPink);
     cursor: pointer;
+    position: relative;
+    -webkit-transition: ease-in-out .3s;
+    -moz-transition: ease-in-out .3s;
+    -ms-transition: ease-in-out .3s;
+    -o-transition: ease-in-out .3s;
+    transition: ease-in-out .3s;
+}
+
+.control .to-right svg {
+    right: 0;
+}
+
+.control .to-left svg {
+    left: 0;
+}
+
+.control .to-right:hover svg{
+    right: -10px;
+}
+
+.control .to-left:hover svg{
+    left: -10px;
 }
 
 .control .logo svg {
-    width: 250px;
+    width: 12vw;
 }
 
-.presentation .about {
+.job-wrap .about {
     text-align: center;
-    margin: 40px 0;
+    margin: 1vw 0;
+    opacity: 1;
 }
 
 .presentation .title {
-    font-size: 37px;
-    margin-bottom: 40px;
+    font-size: 2vw;
+    margin-bottom: 1vw
 }
 
 .presentation .subtitle {
-    font-size: 24px;
+    font-size: 1.4vw;
     font-weight: 100;
 }
 
@@ -1534,24 +1566,24 @@ textarea.b-form-input {
     display: flex;
     align-items: center;
     height: 60px;
-    margin: 24px 0;
+    margin: 1.4vw 0;
 }
 
 .presentation .item .name {
-    font-size: 24px;
+    font-size: 1.3vw;
     color: var(--mPink);
-    width: 130px;
-    margin-right: 24px;
+    width: 6vw;
+    margin-right: 2vw;
 }
 
 .presentation .item .label {
-    font-size: 24px;
+    font-size: 1.3vw;
     font-weight: 100;
     border: 2px solid #fff;
     padding: 5px 10px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    -webkit-border-radius: 5vw;
+    -moz-border-radius: 5vw;
+    border-radius: 5vw;
     margin-right: 10px;
 }
 
@@ -1560,12 +1592,12 @@ textarea.b-form-input {
 }
 
 .presentation .team-face{
-    width: 60px;
-    height: 60px;
+    width: 3.5vw;
+    height: 3.5vw;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 1.5vw;
 }
 
 .presentation .team-face img {
@@ -1577,15 +1609,37 @@ textarea.b-form-input {
 
 .presentation .btn-wrap {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .presentation .btn {
     display: block;
     padding: 14px 24px;
-    width: 500px;
+    width: 50%;
     height: auto;
-    font-size: 24px;
-    margin: 0 auto;
+    font-size: 1.2vw;
+    margin-left: 5px;
+}
+
+.presentation .btn-back {
+    color: var(--mPink);
+    font-size: 1.2vw;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.presentation .btn-back:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--mPink);
 }
 
 .gallery .image {
@@ -1630,10 +1684,62 @@ textarea.b-form-input {
 
 .job-block {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
 }
 
-#job-2,#job-3,#job-4 {
+.job-wrap {
+    width: 100%;
+    height: 100vh;
     display: none;
+}
+
+.job-wrap.current {
+    display: block;
+}
+
+.job-wrap.current {
+    animation: showContent .5s ease-in;
+}
+
+.job-wrap.current .about {
+    animation: showContent 1s ease-in;
+}
+
+.job-wrap.current .info {
+    animation: showContent 1s ease-in;
+}
+
+#jobsPopup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.popup-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0b0b0b;
+    opacity: 0.8;
+    display: none;
+}
+
+@keyframes showContent {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

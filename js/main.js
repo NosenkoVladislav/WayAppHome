@@ -133,9 +133,6 @@ $(function () {
     })
 })
 
-
-
-
 function anchorLinks(selector) {
     $(document).on('click', selector, function (event) {
         event.preventDefault();
@@ -287,6 +284,56 @@ function sendConfirm() {
     })
 }
 
+function mainForm() {
+    $.magnificPopup.open({
+        items: {
+            src: $('#toMainForm').html()
+        },
+        type: 'inline',
+        preloader: false,
+        modal: true,
+        removalDelay: 300,
+        mainClass: 'mfp-no-margins mfp-with-zoom'
+    })
+}
+
+// $('.btn').click(function () {
+//     mainForm();
+//     isPhone('#tel4');
+//
+//
+//     var forms = document.getElementsByTagName('form');
+//     for(var i = 0; i < forms.length; i++){
+//         forms[i].addEventListener('submit', validator);
+//     }
+//
+//     var rules = {
+//         required: function(el){
+//             if(el.value != ''){
+//                 return true;
+//             }
+//             return false;
+//         },
+//         email: function(el){
+//             var reg = /^\w{1,}@\w{1,}\.\w{1,}$/;
+//             return reg.test(el.value);
+//         },
+//         phone: function (el) {
+//             if(el.value.length < 18) {
+//                 return false
+//             } else {
+//                 return true
+//             }
+//         },
+//         nonrequired: function (el) {
+//             if(el.value == '') {
+//                 return true
+//             }
+//         }
+//
+//     };
+// })
+
 function isPhone(selector) {
     $(document).on('input', selector, function () {
         $(this).parent().addClass('isActive');
@@ -355,16 +402,33 @@ addFile();
 //     }
 // });
 
+function galleryInit() {
+    $('.gallery').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+    });
+}
+$(document).ready(function () {
+    galleryInit();
+})
 
-$('.gallery').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    arrows: false,
-    dots: true,
-    autoplay: true,
-    autoplaySpeed: 3000
-});
+function reinitGallery() {
+    $('.gallery').slick('unslick');
+    $('.gallery').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+    });
+}
 
 $('.arrow').click(function () {
     if($(this).hasClass('to-right')) {
@@ -375,9 +439,42 @@ $('.arrow').click(function () {
 })
 
 function jobToRight() {
-    alert('СКОРО БУДЕТ! вправо')
+    var target = $('.current');
+    var newTarget = target.next();
+
+    if(newTarget[0] === undefined) {
+        target.removeClass('current');
+        target = $('.job-wrap').first();
+        target.addClass('current')
+    } else {
+        target.removeClass('current');
+        newTarget.addClass('current');
+    }
+    reinitGallery();
 }
 
 function jobToLeft() {
-    alert('СКОРО БУДЕТ! влево')
+    var target = $('.current');
+    var newTarget = target.prev();
+
+    if(newTarget[0] === undefined) {
+        target.removeClass('current');
+        target = $('.job-wrap').last();
+        target.addClass('current')
+    } else {
+        target.removeClass('current');
+        newTarget.addClass('current');
+    }
+    reinitGallery();
 }
+
+
+$('.jobs-pop').click(function () {
+    $('#jobsPopup').fadeIn(200);
+    $('.popup-fade').fadeIn(200);
+})
+
+$('.popup-close').click(function () {
+    $('#jobsPopup').fadeOut(200);
+    $('.popup-fade').fadeOut(200);
+})
