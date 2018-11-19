@@ -532,6 +532,7 @@ input[type=file] {
     border: 1px solid transparent;
     overflow: visible;
     padding: 20px 20px 40px 40px;
+    cursor: pointer;
 }
 
 .service:hover .service-hover {
@@ -1130,7 +1131,7 @@ textarea.b-form-input {
 }
 
 .add-files {
-    width: 200px;
+    width: auto;
     font-size: 20px;
     color: var(--mOrange);
     display: flex;
@@ -1256,6 +1257,13 @@ textarea.b-form-input {
     margin-bottom: 25px;
 }
 
+.contacts-item__val {
+    display: block;
+    color: #fff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
 .contacts-title {
     font-size: 34px;
     text-transform: uppercase;
@@ -1263,12 +1271,17 @@ textarea.b-form-input {
 
 .contacts-item__icon {
     margin-right: 15px;
+    display: flex;
 }
 
 .contacts-item__icon svg {
     width: 25px;
     height: 25px;
     fill: #fff;
+}
+
+.contacts-item__val--wrapper .contacts-item__val:first-child{
+    margin-bottom: 4px;
 }
 
 .contacts-item__val {
