@@ -111,6 +111,16 @@ $(function () {
         placeholder: 'Выбор услуг',
         closeOnSelect: false
     })
+
+    $('#bFormSelOder').select2({
+        placeholder: 'Выбор услуг',
+        closeOnSelect: false
+    })
+
+    $('#bFromSel').select2({
+        placeholder: 'Выбор услуг',
+        closeOnSelect: false
+    })
 });
 
 
@@ -350,6 +360,7 @@ isPhone('#tel1');
 isPhone('#tel2');
 isPhone('#tel3');
 isPhone('#tel4');
+isPhone('#tel5');
 
 $('#mainForm').magnificPopup({
     type: 'inline',
@@ -372,6 +383,7 @@ function addFile() {
         input[j].addEventListener('change', function() {
             for (var i = 0; i < this.files.length; i ++) {
                 // console.log(this.files[i]);
+                console.dir(this);
                 this.previousElementSibling.innerText = this.files[i].name;
             }
         })
@@ -472,9 +484,15 @@ function jobToLeft() {
 $('.jobs-pop').click(function () {
     $('#jobsPopup').fadeIn(200);
     $('.popup-fade').fadeIn(200);
+    $('body').css('overflow-y','hidden')
+    if($(this).hasClass('service')){
+        $(window).scrollTop($('.services').offset().top)
+    }
 })
 
 $('.popup-close').click(function () {
     $('#jobsPopup').fadeOut(200);
     $('.popup-fade').fadeOut(200);
+    $('body').css('overflow-y','visible')
+
 })

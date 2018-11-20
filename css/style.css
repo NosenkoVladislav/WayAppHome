@@ -6,6 +6,7 @@ html {
 
 body {
     font-family: Futura,Arial,sans-serif;
+    overflow-x: hidden;
 }
 
 input[type=file] {
@@ -445,6 +446,7 @@ input[type=file] {
     height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .services-wrapper {
@@ -1582,6 +1584,10 @@ textarea.b-form-input {
     margin: 1.4vw 0;
 }
 
+.presentation .item:first-child {
+    display: none;
+}
+
 .presentation .item .name {
     font-size: 1.3vw;
     color: var(--mPink);
@@ -1734,6 +1740,7 @@ textarea.b-form-input {
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     width: 100%;
+    z-index: 9;
 }
 
 .popup-fade {
@@ -1745,6 +1752,7 @@ textarea.b-form-input {
     background-color: #0b0b0b;
     opacity: 0.8;
     display: none;
+    z-index: 3;
 }
 
 @keyframes showContent {
@@ -1755,4 +1763,8 @@ textarea.b-form-input {
     100% {
         opacity: 1;
     }
+}
+
+#orderForm{
+    display: none;
 }

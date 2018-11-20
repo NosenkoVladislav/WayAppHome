@@ -363,9 +363,48 @@
         </div>
     </section>
     <section class="section services" id="servicesAnchor" data-anchor="section2">
+        <div id="jobsPopup" class="popup-order">
+            <div class="popup-container">
+                <form class="b-form-wrapper">
+                    <a class="popup-close" id="popup-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-x">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </a>
+                    <div class="b-form-title">
+                        <div class="b-form-title__reg section-title">Готовы обсудить проект?</div>
+                        <div class="b-form-title__sub">Заполните форму и мы свяжемся с вами</div>
+                    </div>
+                    <div class="b-form-content">
+                        <div class="b-form-content--body">
+                            <input type="text" class="form-input b-form-input" placeholder="Имя" data-rule="required">
+                            <input type="text" class="form-input b-form-input" placeholder="E-mail" data-rule="required email">
+                            <input  id="tel5" type="tel" name="phone" placeholder="+XX (XXX) XXX XXXX"  class="masked form-input b-form-input" title="12-digit number" data-rule="required phone">
+                            <select name="b-form-select" id="bFromSel" class="form-input b-form-input select" multiple="multiple" data-rule="nonrequired">
+                                <option value="ios">iOS</option>
+                                <option value="andr">Android</option>
+                                <option value="des">Design</option>
+                                <option value="seo">Продвижение, маркетинг</option>
+                            </select>
+                        </div>
+                        <div class="b-form-content--footer">
+                            <textarea name="b-form-area" id="bFromArea" cols="30" rows="4" class="form-input b-form-input" placeholder="Комментарий" data-rule="nonrequired"></textarea>
+                        </div>
+                        <div class="b-form-control">
+                            <label for="fileAdd" class="add-files">+ Прикрепить файл</label>
+                            <input id="fileAdd" class="fileInput" type="file" accept=".img, .jpg, .png, .jpeg, .zip, .rar">
+                            <button class="btn">отправить запрос</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="container">
             <div class="services-wrapper">
-                <div class="service">
+                <div class="service jobs-pop serv1">
                     <div class="service-content">
                         <div class="service-svg">
                             <svg id="icojam_unigrid_mini" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 80">
@@ -384,7 +423,7 @@
                         <div class="service-order">Заказать</div>
                     </div>
                 </div>
-                <div class="service">
+                <div class="service jobs-pop serv2">
                     <div class="service-content">
                         <div class="service-svg">
                             <svg id="icojam_unigrid_mini" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 84">
@@ -399,7 +438,7 @@
                         <div class="service-order">Заказать</div>
                     </div>
                 </div>
-                <div class="service">
+                <div class="service jobs-pop serv3">
                     <div class="service-content">
                         <div class="service-svg">
                             <svg id="icojam_unigrid_mini" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 72">-->
@@ -413,7 +452,7 @@
                         <div class="service-order">Заказать</div>
                     </div>
                 </div>
-                <div class="service">
+                <div class="service jobs-pop serv4">
                     <div class="service-content">
                         <div class="service-svg">
                             <svg id="icojam_unigrid_mini" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
@@ -734,10 +773,12 @@
                         <input type="text" class="form-input b-form-input" placeholder="Имя" data-rule="required">
                         <input type="text" class="form-input b-form-input" placeholder="E-mail" data-rule="required email">
                         <input  id="tel3" type="tel" name="phone" placeholder="+XX (XXX) XXX XXXX"  class="masked form-input b-form-input" title="12-digit number" data-rule="required phone">
-                        <select name="b-form-select" id="bFormSel" class="form-input b-form-input select" multiple="multiple" data-rule="nonrequired">
+                        <select name="b-form-select" id="bFormSel" class="form-input b-form-input select"
+                                multiple="multiple" data-rule="nonrequired">
                             <option value="ios">iOS</option>
                             <option value="andr">Android</option>
                             <option value="des">Design</option>
+                            <option value="des">Продвижение, маркетинг</option>
                         </select>
                     </div>
                     <div class="b-form-content--footer">
@@ -829,6 +870,7 @@
                         <option value="ios">iOS</option>
                         <option value="andr">Android</option>
                         <option value="des">Design</option>
+                        <option value="seo">Продвижение, маркетинг</option>
                     </select>
                 </div>
                 <div class="b-form-content--footer">
@@ -852,6 +894,8 @@
         </div>
     </div>
 </div>
+
+<div class="popup-fade"></div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
